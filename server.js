@@ -11,8 +11,8 @@ const passport = require("passport");
 const { Strategy } = require("passport-discord");
 const app = require("express")();
 
-const clientID = "754321096416952480",
-      clientSecret = "0VmEKKX_e_fmiG9YZKr5xdh0XVjBUQ-2",
+const clientID = "CLIENT ID",
+      clientSecret = "CLIENT SECRET",
       callbackURL = `https://${process.env.PROJECT_DOMAIN}.glitch.me/auth/discord/callback`;
 
 passport.serializeUser(function(user, done) {
