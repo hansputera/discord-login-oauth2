@@ -48,13 +48,17 @@ app.get("/auth/discord", passport.authenticate("discord", {
   scope: ["identify", "email", "guilds"]
 }));
 
+app.get("/logout", checkAuth, (req,res) => {
+ req.logout();
+ res.redirect("/");
+});
 app.get("/auth/discord/callback", passport.authenticate("discord", {
   failureRedirect: "/login"
 }), (req, res) => {
   res.redirect("/");
 });
 
-app.get("/", checkAuth, (req, res) => {
+app.get("/", (req, res) => {
   res.json(req.user ? req.user : { "empty": "login first!" });
 });
 
